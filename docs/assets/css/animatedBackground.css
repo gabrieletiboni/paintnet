@@ -1,0 +1,215 @@
+#animContainer {
+  display: none;
+}
+
+@media screen and (min-width: 980px) {
+  #animContainer {
+    display: block;
+    position: absolute;
+    /*top: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
+    margin: auto;
+    overflow: hidden;
+    pointer-events: none;
+
+    /*position: absolute;*/
+    /*margin: auto;*/
+    width: 125%;
+    height: 200%;
+    top: -100%;
+    left: -12.5%;
+
+    -webkit-border-radius: 25%;
+    -moz-border-radius: 25%;
+    border-radius: 25%;
+  }
+  .container {
+    /*transform: translate(-50%, -50%);
+    height: 50vw;
+    width: 50vw;
+    position: absolute;
+    left: 50%;
+    top: 50%;*/
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 50%;
+    width: 110vw;
+
+    /*background-color: red;*/
+    /*width: 100%;*/
+    /*width: 80%;*/
+    /*left: 0px;*/
+
+    /*height: 100%;*/
+    z-index: 11;
+    opacity: .15;
+  }
+  .container > .row {
+    position: relative;
+    float: left;
+    width: 100%;
+    clear: both;
+  }
+  .container > .row > .loader {
+    position: relative;
+    display: inline-block;
+    height: 10vw;
+    width: 10vw;
+    float: left;
+  }
+  .container > .row > .loader > .lines {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    position: absolute;
+  }
+  .container > .row > .loader > .lines > span {
+    -webkit-animation: shift-background 10s infinite cubic-bezier(1, 0.5, 0.25, 0.5);
+            animation: shift-background 10s infinite cubic-bezier(1, 0.5, 0.25, 0.5);
+    background-color: white;
+    position: absolute;
+    width: 2vw;
+    height: 3px;
+  }
+  .container > .row > .loader > .lines > span::before {
+    background-color: inherit;
+    height: 2vw;
+    position: absolute;
+    content: "";
+    width: 3px;
+  }
+  .container > .row > .loader > .lines > span:nth-child(1), .container > .row > .loader > .lines > span:nth-child(4), .container > .row > .loader > .lines > span:nth-child(1)::before, .container > .row > .loader > .lines > span:nth-child(4)::before {
+    left: 0;
+  }
+  .container > .row > .loader > .lines > span:nth-child(2), .container > .row > .loader > .lines > span:nth-child(3), .container > .row > .loader > .lines > span:nth-child(2)::before, .container > .row > .loader > .lines > span:nth-child(3)::before {
+    right: 0;
+  }
+  .container > .row > .loader > .lines > span:nth-child(1), .container > .row > .loader > .lines > span:nth-child(2), .container > .row > .loader > .lines > span:nth-child(1)::before, .container > .row > .loader > .lines > span:nth-child(2)::before {
+    top: 0;
+  }
+  .container > .row > .loader > .lines > span:nth-child(3), .container > .row > .loader > .lines > span:nth-child(4), .container > .row > .loader > .lines > span:nth-child(3)::before, .container > .row > .loader > .lines > span:nth-child(4)::before {
+    bottom: 0;
+  }
+  .container > .row:nth-child(even) > .loader:nth-child(even) > .lines {
+    -webkit-animation: rotate-right 10s infinite cubic-bezier(1, 0.5, 0.25, 0.5);
+            animation: rotate-right 10s infinite cubic-bezier(1, 0.5, 0.25, 0.5);
+  }
+  .container > .row:nth-child(even) > .loader:nth-child(odd) > .lines {
+    -webkit-animation: rotate-left 10s infinite cubic-bezier(1, 0.5, 0.25, 0.5);
+            animation: rotate-left 10s infinite cubic-bezier(1, 0.5, 0.25, 0.5);
+  }
+  .container > .row:nth-child(odd) > .loader:nth-child(even) > .lines {
+    -webkit-animation: rotate-left 10s infinite cubic-bezier(1, 0.5, 0.25, 0.5);
+            animation: rotate-left 10s infinite cubic-bezier(1, 0.5, 0.25, 0.5);
+  }
+  .container > .row:nth-child(odd) > .loader:nth-child(odd) > .lines {
+    -webkit-animation: rotate-right 10s infinite cubic-bezier(1, 0.5, 0.25, 0.5);
+            animation: rotate-right 10s infinite cubic-bezier(1, 0.5, 0.25, 0.5);
+  }
+}
+
+
+@-webkit-keyframes rotate-right {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  75% {
+    transform: translate(-50%, -50%) rotate(135deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+}
+
+@keyframes rotate-right {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  75% {
+    transform: translate(-50%, -50%) rotate(135deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+}
+@-webkit-keyframes rotate-left {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(-90deg);
+  }
+  75% {
+    transform: translate(-50%, -50%) rotate(-135deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-180deg);
+  }
+}
+@keyframes rotate-left {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(-90deg);
+  }
+  75% {
+    transform: translate(-50%, -50%) rotate(-135deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-180deg);
+  }
+}
+@-webkit-keyframes shift-background {
+  0%, 100% {
+    background-color: #bf5340;
+  }
+  25% {
+    background-color: #408cbf;
+  }
+  50% {
+    background-color: #bf7140;
+  }
+  75% {
+    background-color: #40bf99;
+  }
+}
+@keyframes shift-background {
+  0%, 100% {
+    background-color: #bf5340;
+  }
+  25% {
+    background-color: #408cbf;
+  }
+  50% {
+    background-color: #bf7140;
+  }
+  75% {
+    background-color: #40bf99;
+  }
+}

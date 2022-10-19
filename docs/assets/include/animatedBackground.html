@@ -1,0 +1,141 @@
+<div class="container" id="animContent">
+  <!-- <div class="row">
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="loader">
+      <div class="lines"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </div> -->
+</div>
+
+<script type="text/javascript">
+  const num_rows = 4;
+  const num_items_per_row = 11;
+  const container = document.getElementById("animContent");
+
+  for (let i=0; i<num_rows; i++) {
+      let row = document.createElement("div");
+      row.className = "row";
+
+      container.appendChild(row);
+
+      for (let j=0; j<num_items_per_row; j++) {
+        let loader = document.createElement("div");
+        loader.className = "loader";
+
+        row.appendChild(loader);
+
+        let lines = document.createElement("div");
+        lines.className = "lines";
+        loader.appendChild(lines);
+
+        for (let k=0; k<5; k++) {
+          let span = document.createElement("span");
+          lines.appendChild(span);
+        }
+      }
+  }
+</script>
