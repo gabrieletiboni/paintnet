@@ -7,6 +7,14 @@ html, body {
 	overflow-x: hidden;
 }
 
+.easyLink {
+	color: #1e6bb8;
+	text-decoration: none;
+}
+	.easyLink:hover {
+		text-decoration: underline;
+	}
+
 
 header {
 	position: relative;
@@ -214,7 +222,47 @@ header {
 
 #intro {
 	/*background-color: red;*/
+	border-bottom: 1px solid #eaeaea;
 }
+
+.tab {
+	margin: 60px auto 0px auto;
+}
+	.tab h2 {
+		color: rgb(66,89,124);
+		position: relative;
+	}
+		.tab h2:before {
+			content: "";
+			position: absolute;
+			left: -36px;
+			width: 20px;
+			height: 20px;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			background-color: rgb(66,89,124);
+			-webkit-border-radius: 4px;
+			-moz-border-radius: 4px;
+			border-radius: 4px;
+		}
+
+	.tab .comingSoon {
+		color: rgba(0,0,0, 0.3);
+		/*text-align: center;*/
+	}
+
+
+footer {
+	width: 90%;
+	max-width: 980px;
+	margin: 20px auto 0px;
+	padding-bottom: 24px;
+	text-align: center;
+	color: rgba(0,0,0, 0.6);
+	font-size: .9rem;
+}
+
 
 
 @media screen and (max-width: 980px) {
