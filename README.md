@@ -13,9 +13,9 @@ Our release is **under construction**, you can track its progress below:
 
 - [ ] PaintNet dataset for public download
 - [ ] Code implementation
-	- [ ] dataset loader
-	- [ ] training
-	- [ ] PCD evaluation metric
+	- [x] dataset loader
+	- [x] training
+	- [x] PCD evaluation metric
 	- [ ] results rendering
 	- [ ] intra-stroke alignment
 - [ ] Trained models
