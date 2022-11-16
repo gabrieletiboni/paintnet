@@ -1,0 +1,7 @@
+# open3d
+six
+numpy
+point-cloud-utils
+wandb
+matplotlib
+seaborn

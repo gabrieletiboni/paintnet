@@ -1,0 +1,6 @@
+{
+	"model": {
+		"affinetrans": false,
+		"hidden_size": [1024, 1024]
+	}
+}

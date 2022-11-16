@@ -1,0 +1,22 @@
+{
+	"dataset": "containers-v2",
+	"model": {
+		"affinetrans": false,
+		"hidden_size": [1024, 1024]
+	},
+	"pc_points": 5120,
+	"traj_points": 1000,
+	"lambda_points": 4,
+	"overlapping": 1,
+	"loss": ["chamfer", "rich_attraction_chamfer"],
+	"epochs": 1250,
+	"steplr": 400,
+	"weight_rich_attraction_chamfer": 0.5,
+	"batch_size": 32,
+	"backbone": "pointnet2",
+	"pretrained": true,
+	"normalization": "per-dataset",
+	"extra_data": ["orientnorm"],
+	"weight_orient": 0.25,
+	"augmentations": []
+}
