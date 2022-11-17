@@ -21,7 +21,7 @@ Our release is **under construction**, you can track its progress below:
 - [ ] Trained models
 
 
-# Installation
+## Installation
 This repo is not meant to be used as a python package. Just clone it, modify it and use it as you wish.
 ```
 # Download PaintNet dataset at https://gabrieletiboni.github.io/paintnet/
@@ -36,7 +36,7 @@ python build.py install
 ```
 
 
-### Getting Started
+## Getting Started
 Run the `train.py` script to train a model and evaluate its performance on the test set by means of Pose-wise chamfer distance.
 
 - *Complete (cuboids)*
@@ -62,7 +62,7 @@ Run the `train.py` script to train a model and evaluate its performance on the t
     - `python train.py --config containers_stable_v1.json --seed 42`
 
 
-### Citing
+## Citing
 If you use this repository, please consider citing
 ```
 @misc{tiboni2022paintnet,
