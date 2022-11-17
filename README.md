@@ -42,17 +42,17 @@ Run the `train.py` script to train a model and evaluate its performance on the t
 - *Complete (cuboids)*
 	```
 	python train.py --dataset cuboids-v1 \
-					--pc_points 5120 \
-					--traj_points 2000 \
-					--loss chamfer rich_attraction_chamfer \
-					--weight_rich_attraction_chamfer 0.5 \
-					--lambda_points 4 \
-					--extra_data orientnorm \
-					--weight_orient 0.25
-					--epochs 1250 \
-					--batch_size 32 \
-					--backbone pointnet2 --pretrained \
-					--seed 42
+			--pc_points 5120 \
+			--traj_points 2000 \
+			--loss chamfer rich_attraction_chamfer \
+			--weight_rich_attraction_chamfer 0.5 \
+			--lambda_points 4 \
+			--extra_data orientnorm \
+			--weight_orient 0.25
+			--epochs 1250 \
+			--batch_size 32 \
+			--backbone pointnet2 --pretrained \
+			--seed 42
 	```
 - *Reproduce paper results* 
     - `python train.py --config cuboids_stable_v1.json --seed 42`
