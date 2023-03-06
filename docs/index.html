@@ -31,16 +31,15 @@
         <div id="linksContainer">
           <a href="https://arxiv.org/abs/2211.06930">Paper</a>
           <a href="https://github.com/gabrieletiboni/paintnet" target="_blank" class="iconLink">Code <img src="assets/img/github_logo_light_64px.png"/></a>
-          <!-- <a href="#">Video</a> -->
-          <a href="#" class="comingSoon">Download</a>
-          <a href="#" class="comingSoon">Results</a>
+          <a href="#downloadTab" class="comingSoon">Download</a>
+          <a href="#resultsTab" class="comingSoon">Results</a>
         </div>
       </div>
 
       <div id="videoContainer">
         <div>
           <video controls>
-            <source src="assets/video/PaintNet_video_trimmed_final_compressed_effective.mp4" type="video/mp4">
+            <source src="assets/video/IROS23_video_v5_trimmed_1minute_compressed_OFFICIAL.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -58,7 +57,7 @@
         </p>
       </div>
 
-      <div class="tab">
+      <div class="tab" id="datasetTab">
         <h2>Dataset</h2>
 
         <p>
@@ -66,14 +65,14 @@
         </p>
       </div>
 
-      <div class="tab">
+      <div class="tab" id="downloadTab">
           <h2>Download</h2>
           <p class="comingSoon">
             Coming Soon
           </p>
       </div>
 
-      <div class="tab">
+      <div class="tab" id="resultsTab">
           <h2>Results</h2>
           <p class="comingSoon">
             Coming Soon
@@ -111,6 +110,19 @@
         loadAnimatedBackground();
       }
 
+      $('a[href^="#"]').on('click', function(event) {
+
+          var target = $( $(this).attr('href') );
+
+          if( target.length ) {
+              event.preventDefault();
+              $('html, body').animate({
+                  // scrollTop: target.offset().top - 30
+                  scrollTop: target.offset().top+$('body').scrollTop()-10
+              }, 600);
+          }
+
+      });
 
       function loadAnimatedBackground() {
         $("#animContainer").load("assets/include/animatedBackground.html"); 
