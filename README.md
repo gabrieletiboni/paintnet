@@ -1,6 +1,6 @@
 # PaintNet: Unstructured Multi-Path Learning from 3D Point Clouds for Robotic Spray Painting
 
-Preprint](https://arxiv.org/abs/2211.06930) / [Website](https://gabrieletiboni.github.io/paintnet/) / [Video](https://gabrieletiboni.github.io/paintnet/)
+[Preprint](https://arxiv.org/abs/2211.06930) / [Website](https://gabrieletiboni.github.io/paintnet/) / [Video](https://gabrieletiboni.github.io/paintnet/)
 
 ##### Gabriele Tiboni, Raffaello Camoriano, Tatiana Tommasi.
 
