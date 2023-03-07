@@ -6,8 +6,8 @@ This repository contains the code for the preprint [paper](https://arxiv.org/abs
 *Abstract:* Popular industrial robotic problems such as spray painting and welding require (i) conditioning on free-shape 3D objects and (ii) planning of multiple trajectories to solve the task. Yet, existing solutions make strong assumptions on the form of input surfaces and the nature of output paths, resulting in limited approaches unable to cope with real-data variability. By leveraging on recent advances in 3D deep learning, we introduce a novel framework capable of dealing with arbitrary 3D surfaces, and handling a variable number of unordered output paths (i.e. unstructured). Our approach focuses on predicting smaller path segments, which can be later concatenated to reconstruct long-horizon paths. We extensively validate the proposed method in the context of robotic spray painting by releasing PaintNet, the first public dataset of expert demonstrations on free-shape 3D objects collected in a real industrial scenario. A thorough experimental analysis demonstrates the capabilities of our model to promptly predict smooth output paths that cover up to 95% of the surface of previously unseen object instances. Furthermore, we show how models learned from PaintNet capture relevant features which serve as a reliable starting point to improve data and time efficiency when dealing with new object categories. [Watch video](https://gabrieletiboni.github.io/paintnet/)
 
 
-<img src="https://www.gabrieletiboni.com/assets/spray_paint_task_outline_white.png" style="width: 80%; max-width: 900px; max-height: 320px;" />
-
+<!--<img src="https://www.gabrieletiboni.com/assets/spray_paint_task_outline_white.png" style="width: 80%; max-width: 900px; max-height: 320px;" />-->
+[intro_overview_image-iros_v22_horizontal_v3_compressed.pdf](https://github.com/gabrieletiboni/paintnet/files/10910126/intro_overview_image-iros_v22_horizontal_v3_compressed.pdf)
 
 Our release is **under construction**, you can track its progress below:
 
