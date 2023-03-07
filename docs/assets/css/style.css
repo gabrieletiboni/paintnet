@@ -225,6 +225,32 @@ header {
 	border-bottom: 1px solid #eaeaea;
 }
 
+
+#introImg {
+	max-width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+	#introImg > span:first-of-type {
+		text-align: center;
+	}
+
+	#introImg > span:first-of-type > img {
+		max-width: 100%;
+		width: 100%;
+		height: auto;
+	}
+
+	#introImg > span:last-of-type {
+		margin-top: 16px;
+		font-style: italic;
+		font-size: .8rem;
+		text-align: center;
+	}
+
 .tab {
 	margin: 60px auto 0px auto;
 }
