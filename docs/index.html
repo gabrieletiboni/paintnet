@@ -53,7 +53,7 @@
           Popular industrial robotic problems such as spray painting and welding require (i) conditioning on free-shape 3D objects and (ii) planning of multiple trajectories to solve the task. Yet, existing solutions make strong assumptions on the form of input surfaces and the nature of output paths, resulting in limited approaches unable to cope with real-data variability. By leveraging on recent advances in 3D deep learning, we introduce a novel framework capable of dealing with arbitrary 3D surfaces, and handling a variable number of unordered output paths (i.e. unstructured). Our approach focuses on predicting smaller path segments, which can be later concatenated to reconstruct long-horizon paths. We extensively validate the proposed method in the context of robotic spray painting by releasing PaintNet, the first public dataset of expert demonstrations on free-shape 3D objects collected in a real industrial scenario. A thorough experimental analysis demonstrates the capabilities of our model to promptly predict smooth output paths that cover up to 95% of the surface of previously unseen object instances. Furthermore, we show how models learned from PaintNet capture relevant features which serve as a reliable starting point to improve data and time efficiency when dealing with new object categories.
         </p>
         <br/>
-        <p style="font-style: italic;">Authored by <a href="https://gabrieletiboni.com/" target="_blank" class="easyLink">Gabriele Tiboni</a>, <a href="https://scholar.google.com/citations?user=vBBJ2wkAAAAJ&hl=it" target="_blank" class="easyLink">Raffaello Camoriano</a>, and <a href="http://www.tatianatommasi.com/" target="_blank" class="easyLink">Tatiana Tammasi</a> from Politecnico di Torino. This work was supported by the <a href="https://www.efort.com.cn/en/group/index/48.html" target="_blank" class="easyLink">EFORT group</a>, providing the authors with domain knowledge, original object meshes, trajectory data, and access to the proprietary spray painting simulator used during the experiments.
+        <p style="font-style: italic;">Authored by <a href="https://gabrieletiboni.com/" target="_blank" class="easyLink">Gabriele Tiboni</a>, <a href="https://scholar.google.com/citations?user=vBBJ2wkAAAAJ&hl=it" target="_blank" class="easyLink">Raffaello Camoriano</a>, and <a href="http://www.tatianatommasi.com/" target="_blank" class="easyLink">Tatiana Tammasi</a> from Politecnico di Torino. This work was supported by <a href="https://www.efort.com.cn/en/group/index/48.html" target="_blank" class="easyLink">EFORT group</a>, providing the authors with domain knowledge, original object meshes, trajectory data, and access to the proprietary spray painting simulator used during the experiments.
         </p>
       </div>
 
@@ -62,7 +62,7 @@
           <img src="assets/img/paintnet_overview_image.png">
         </span>
         <span>
-          A policy is trained on a simplified model of the soft MultiGait robot design with domain randomization (DR) on the Poisson's Ratio, Young's Modulus and mass of its constituent materials. Later, the policy is evaluated on both (left) the simplified model and (right) the full accurate model, which is about ~8x slower. Training with DR allows to train policies on affordable models and transfer their behavior effectively to more accurate models, which resemble the real robot dynamics.
+          Overview of our method for multi-path prediction of 6D-pose spray painting paths given a raw 3D point cloud in input.
         </span>
       </div>
 
