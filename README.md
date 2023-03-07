@@ -1,9 +1,9 @@
-# PaintNet: 3D Learning of Pose Paths Generators for Robotic Spray Painting
+# PaintNet: Unstructured Multi-Path Learning from 3D Point Clouds for Robotic Spray Painting
 ##### Gabriele Tiboni, Raffaello Camoriano, Tatiana Tommasi.
 
 This repository contains the code for the preprint [paper](https://arxiv.org/abs/2211.06930): "PaintNet: 3D Learning of Pose Paths Generators for Robotic Spray Painting".
 
-*Abstract:* Optimization and planning methods for tasks involving 3D objects often rely on prior knowledge and ad-hoc heuristics. In this work, we target learning-based long-horizon path generation by leveraging recent advances in 3D deep learning. We present PaintNet, the first dataset for learning robotic spray painting of free-form 3D objects. PaintNet includes more than 800 object meshes and the associated painting strokes collected in a real industrial setting. We then introduce a novel 3D deep learning method to tackle this task and operate on unstructured input spaces—point clouds—and mix-structured output spaces—unordered sets of painting strokes. Our extensive experimental analysis demonstrates the capabilities of our method to predict smooth output strokes that cover up to 95% of previously unseen object surfaces, with respect to ground-truth paint coverage. [Watch video](https://gabrieletiboni.github.io/paintnet/)
+*Abstract:* Popular industrial robotic problems such as spray painting and welding require (i) conditioning on free-shape 3D objects and (ii) planning of multiple trajectories to solve the task. Yet, existing solutions make strong assumptions on the form of input surfaces and the nature of output paths, resulting in limited approaches unable to cope with real-data variability. By leveraging on recent advances in 3D deep learning, we introduce a novel framework capable of dealing with arbitrary 3D surfaces, and handling a variable number of unordered output paths (i.e. unstructured). Our approach focuses on predicting smaller path segments, which can be later concatenated to reconstruct long-horizon paths. We extensively validate the proposed method in the context of robotic spray painting by releasing PaintNet, the first public dataset of expert demonstrations on free-shape 3D objects collected in a real industrial scenario. A thorough experimental analysis demonstrates the capabilities of our model to promptly predict smooth output paths that cover up to 95% of the surface of previously unseen object instances. Furthermore, we show how models learned from PaintNet capture relevant features which serve as a reliable starting point to improve data and time efficiency when dealing with new object categories. [Watch video](https://gabrieletiboni.github.io/paintnet/)
 
 
 <img src="https://www.gabrieletiboni.com/assets/spray_paint_task_outline_white.png" style="width: 80%; max-width: 900px; max-height: 320px;" />
@@ -17,7 +17,7 @@ Our release is **under construction**, you can track its progress below:
 	- [x] training
 	- [x] PCD evaluation metric
 	- [ ] results rendering
-	- [ ] intra-stroke alignment
+	- [ ] intra-stroke concatenation
 - [ ] Trained models
 
 
@@ -66,12 +66,11 @@ Run the `train.py` script to train a model and evaluate its performance on the t
 If you use this repository, please consider citing
 ```
 @misc{tiboni2022paintnet,
-  title = {PaintNet: 3D Learning of Pose Paths Generators for Robotic Spray Painting},
+  title = {PaintNet: Unstructured Multi-Path Learning from 3D Point Clouds for Robotic Spray Painting},
   author = {Tiboni, Gabriele and Camoriano, Raffaello and Tommasi, Tatiana},
-  doi = {10.48550/ARXIV.2211.06930},
-  keywords = {Robotics (cs.RO), Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences, FOS: Computer and information sciences},
+  doi = {10.48550/ARXIV.2211.06930},  
+  keywords = {Robotics (cs.RO), Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences, FOS: Computer and information sciences},  
   publisher = {arXiv},
-  year = {2022},
-  primaryClass={cs.RO}
+  year = {2022}
 }
 ```
