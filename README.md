@@ -68,12 +68,12 @@ Run the `train.py` script to train a model and evaluate its performance on the t
 ## Citing
 If you use this repository, please consider citing
 ```
-@misc{tiboni2022paintnet,
-  title = {PaintNet: Unstructured Multi-Path Learning from 3D Point Clouds for Robotic Spray Painting},
-  author = {Tiboni, Gabriele and Camoriano, Raffaello and Tommasi, Tatiana},
-  doi = {10.48550/ARXIV.2211.06930},  
-  keywords = {Robotics (cs.RO), Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences, FOS: Computer and information sciences},  
-  publisher = {arXiv},
-  year = {2022}
+@misc{tiboni2023paintnet,
+	title={PaintNet: Unstructured Multi-Path Learning from 3D Point Clouds for Robotic Spray Painting}, 
+	author={Gabriele Tiboni and Raffaello Camoriano and Tatiana Tommasi},
+	year={2023},
+	eprint={2211.06930},
+	archivePrefix={arXiv},
+	primaryClass={cs.RO}
 }
 ```
