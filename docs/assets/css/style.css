@@ -15,6 +15,84 @@ html, body {
 		text-decoration: underline;
 	}
 
+.linkLike {
+	cursor: pointer;
+}
+
+.inlineCode {
+	display: inline-block;
+	padding: 3px 5px;
+	background-color: #efefef;
+	color: #2020202;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	font-size: .9em;
+}
+
+#citePopup {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.35);
+
+	z-index: 99999;
+	display: none;
+}
+	#citePopup > div {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		   -moz-transform: translateY(-50%);
+		    -ms-transform: translateY(-50%);
+		     -o-transform: translateY(-50%);
+		        transform: translateY(-50%);
+		margin: auto;
+		width: 92%;
+		max-width: 680px;
+		max-height: 90%;
+		padding: 42px 38px;
+		-webkit-box-sizing: border-box;
+		   -moz-box-sizing: border-box;
+				box-sizing: border-box;
+		background-color: #fff;
+		-webkit-border-radius: 6px;
+		-moz-border-radius: 6px;
+		border-radius: 6px;
+		-webkit-box-shadow: 0px 2px 16px -4px rgba(0, 0, 0, 0.5);
+		-moz-box-shadow: 0px 2px 16px -4px rgba(0, 0, 0, 0.5);
+		box-shadow: 0px 2px 16px -4px rgba(0, 0, 0, 0.5);
+	}
+		#citePopup p {
+			margin-top: 0px;
+		}
+
+		#closePopupIcon {
+			position: absolute;
+			top: 0px;
+			right: 0px;
+			padding: 8px 14px;
+			font-weight: bold;
+			font-style: normal;
+			font-size: 1.4rem;
+			color: #808080;
+			cursor: pointer;
+			-webkit-transition: all .1s ease-in-out;
+			   -moz-transition: all .1s ease-in-out;
+			    -ms-transition: all .1s ease-in-out;
+			     -o-transition: all .1s ease-in-out;
+			        transition: all .1s ease-in-out;
+		}
+			#closePopupIcon:hover {
+				color: #202020;
+			}
 
 header {
 	position: relative;

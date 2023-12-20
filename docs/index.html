@@ -20,6 +20,25 @@
     <meta name="theme-color" content="#ffffff">
   </head>
   <body>
+        <div id="citePopup">
+      <div id="citePopupContent">
+        <p>If you use our code or dataset, please consider citing:</p>
+          <div class="bibtexContainer">
+<pre>
+@misc{tiboni2022paintnet,
+  title = {PaintNet: Unstructured Multi-Path Learning from 3D Point Clouds for Robotic Spray Painting},
+  author = {Tiboni, Gabriele and Camoriano, Raffaello and Tommasi, Tatiana},
+  doi = {10.48550/ARXIV.2211.06930},  
+  keywords = {Robotics (cs.RO), Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences, FOS: Computer and information sciences},  
+  publisher = {arXiv},
+  year = {2022}
+}
+</pre>
+          </div>
+          <i id="closePopupIcon">&times;</i>
+      </div>
+    </div>
+
     <header>
       <div id="animContainer"></div>
 
@@ -31,8 +50,9 @@
         <div id="linksContainer">
           <a href="https://arxiv.org/abs/2211.06930">Paper</a>
           <a href="https://github.com/gabrieletiboni/paintnet" target="_blank" class="iconLink">Code <img src="assets/img/github_logo_light_64px.png"/></a>
-          <a href="#downloadTab" class="comingSoon">Download</a>
-          <a href="#resultsTab" class="comingSoon">Results</a>
+          <a href="#datasetTab">Dataset</a>
+          <!-- <a href="#resultsTab" class="comingSoon">Results</a> -->
+          <a class="linkLike openCitePopup">Cite</a>
         </div>
       </div>
 
@@ -70,23 +90,30 @@
         <h2>Dataset</h2>
 
         <p>
-          We introduce the PaintNet dataset to accelerate research on supervised learning for multiple pose paths prediction on free-form 3D objects. PaintNet includes more than 800 object meshes and the associated spray painting strokes collected in a real industrial setting. The data currently covers four object categories of growing complexity: <em>cuboids</em>, <em>windows</em>, <em>shelves</em>, <em>containers</em>. All object meshes are already provided in a subdivided, smoothed watertight version to avoid sharp edges and holes. For each object, the associated unordered set of spray painting paths (a.k.a. strokes) is given, each being a sequence of end-effector poses. The 6-dimensional poses encode the 3D position of the ideal paint deposit point—12cm away from the gun nozzle—and the gun orientations as Euler angles. Each pose is collected by sampling from the end-effector kinematics at a rate of 4ms during offline program execution.
+          We introduce the PaintNet dataset to accelerate research on supervised learning for multi-path prediction conditioned on free-shape 3D objects. PaintNet includes more than 800 object meshes and the associated spray painting strokes collected in a real industrial setting. The data currently covers four object categories of growing complexity: <em>cuboids</em>, <em>windows</em>, <em>shelves</em>, <em>containers</em>. All object meshes are already provided in a subdivided, smoothed watertight version to avoid sharp edges and holes. For each object, the associated unordered set of spray painting paths (a.k.a. strokes) is given, each being a sequence of end-effector poses. The 6-dimensional poses encode the 3D position of the ideal paint deposit point—12cm away from the gun nozzle—and the gun orientations as Euler angles. Each pose is collected by sampling from the end-effector kinematics at a rate of 4ms during offline program execution.
         </p>
+
+        <p>
+          <strong>Download the PaintNet dataset at <a target="_blank" href="https://zenodo.org/records/10105273" class="easyLink">https://zenodo.org/records/10105273</a></strong>.
+        </p>
+
+        <p>You may proceed to unzip the desired categories at the link above into a local path <span class="inlineCode">path/to/dataset/</span>. Then, add the environment variable <span class="inlineCode">export PAINTNET_ROOT=path/to/dataset/</span>.</p>
+
       </div>
 
-      <div class="tab" id="downloadTab">
+      <!-- <div class="tab" id="downloadTab">
           <h2>Download</h2>
           <p class="comingSoon">
             Coming Soon
           </p>
-      </div>
+      </div> -->
 
-      <div class="tab" id="resultsTab">
+      <!-- <div class="tab" id="resultsTab">
           <h2>Results</h2>
           <p class="comingSoon">
             Coming Soon
           </p>
-      </div>
+      </div> -->
 
       <div class="tab">
           <h2>Citing</h2>
@@ -130,6 +157,20 @@
               }, 600);
           }
 
+      });
+
+      $(document).on('click', '.openCitePopup', function() {
+        $(document.getElementById("citePopup")).fadeIn(200);
+      });
+
+      $(document).on('click', '#citePopup', function() {
+        if (!$(event.target).closest(document.getElementById("citePopupContent")).length) {
+          $(document.getElementById("citePopup")).fadeOut(200);
+        }
+      });
+
+      $(document.getElementById("closePopupIcon")).on('click', function() {
+          $(document.getElementById("citePopup")).fadeOut(200);
       });
 
       function loadAnimatedBackground() {
