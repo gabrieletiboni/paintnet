@@ -76,7 +76,9 @@ def center_traj(traj, meshpath):
 
 def read_mesh_as_pointcloud(filename):
     v, f = pcu.load_mesh_vf(os.path.join(filename))
-    f_i, bc = pcu.sample_mesh_poisson_disk(v, f, 10000, 0.5)  # Num of points (not guaranteed), radius for poisson sampling
+    #target_radius = np.linalg.norm(v.max(0) - v.min(0)) * 0.01
+    # print(target_radius)
+    f_i, bc = pcu.sample_mesh_poisson_disk(v, f, num_samples=15000)  # Num of points (not guaranteed), radius for poisson sampling
     points = pcu.interpolate_barycentric_coords(f, f_i, bc, v)
     return points
 
@@ -753,6 +755,8 @@ def get_dataset_path(category):
     category : str
                e.g. cuboids-v1, windows-v1, shelves-v1, containers-v2
     """
+    print(category)
+    print(os.environ.get("PAINTNET_ROOT"))
     assert os.environ.get("PAINTNET_ROOT") is not None, "Set PAINTNET_ROOT environment variable to localize the paintnet dataset root."
     assert os.path.isdir(os.environ.get("PAINTNET_ROOT")), f'Dataset root path was set but does not exist on current system. Path: {s.environ.get("PAINTNET_ROOT")}'
     assert os.path.isdir(os.path.join(os.environ.get("PAINTNET_ROOT"), category)), 'current dataset category {category} does not exist on your system.'

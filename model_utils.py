@@ -3,8 +3,8 @@ import pdb
 
 import torch
 
-from models.pointnet import PointNetRegressor
-from models.pointnet_deeper import PointNetRegressor as PointNetDeeperRegressor
+# from models.pointnet import PointNetRegressor
+# from models.pointnet_deeper import PointNetRegressor as PointNetDeeperRegressor
 from models.pointnet2_cls_ssg import PointNet2Regressor
 from paintnet_utils import *
 

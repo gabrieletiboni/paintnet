@@ -28,7 +28,7 @@ except ImportError:
 
 
 from paintnet_utils import *
-from models.dgcnn import DGCNNDiscriminator
+# from models.dgcnn import DGCNNDiscriminator
 from models.gradient_penalty import GradientPenalty
 
 
@@ -71,19 +71,19 @@ class LossHandler():
         """
             Loss initializations
         """
-        if 'discriminator' in self.loss:  # Initialize discriminator
-            self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-            self.D = DGCNNDiscriminator(inputdim=3, k=self.config['knn_gcn']).to(self.device)
+        # if 'discriminator' in self.loss:  # Initialize discriminator
+        #     self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        #     self.D = DGCNNDiscriminator(inputdim=3, k=self.config['knn_gcn']).to(self.device)
             
-            self.minimax_loss = nn.BCEWithLogitsLoss().cuda()
-            self.D_optimizer = torch.optim.Adam(self.D.parameters(), lr=0.0001, betas=(0.9, 0.999))
+        #     self.minimax_loss = nn.BCEWithLogitsLoss().cuda()
+        #     self.D_optimizer = torch.optim.Adam(self.D.parameters(), lr=0.0001, betas=(0.9, 0.999))
 
-        if 'wdiscriminator' in self.loss:  # Initialize wasserstein discriminator
-            self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-            self.D = DGCNNDiscriminator(inputdim=3, k=self.config['knn_gcn']).to(self.device)
+        # if 'wdiscriminator' in self.loss:  # Initialize wasserstein discriminator
+        #     self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        #     self.D = DGCNNDiscriminator(inputdim=3, k=self.config['knn_gcn']).to(self.device)
             
-            self.GradPenalty = GradientPenalty(self.config['discr_lambdaGP'], gamma=1, device=self.device)
-            self.D_optimizer = torch.optim.Adam(self.D.parameters(), lr=0.0001, betas=(0.9, 0.999))
+        #     self.GradPenalty = GradientPenalty(self.config['discr_lambdaGP'], gamma=1, device=self.device)
+        #     self.D_optimizer = torch.optim.Adam(self.D.parameters(), lr=0.0001, betas=(0.9, 0.999))
 
         """
             Asserts for loss compatibility

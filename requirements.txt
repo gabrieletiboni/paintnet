@@ -5,3 +5,7 @@ point-cloud-utils
 wandb
 matplotlib
 seaborn
+pyvista
+torch==1.13.1
+torchvision==0.14.1
+git+https://github.com/facebookresearch/pytorch3d.git

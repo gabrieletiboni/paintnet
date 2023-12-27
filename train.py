@@ -12,13 +12,14 @@ trajectory, given object point-cloud in input
             - python train.py --config containers_stable_v1.json --seed 42
 """
 import pdb
+import os
 import sys
 import argparse
 from pprint import pprint
 import time
 import socket
 import shutil
-
+from tqdm import tqdm
 import numpy as np
 import torch
 import wandb
@@ -29,6 +30,7 @@ from model_utils import get_model, init_from_pretrained
 from loss_handler import LossHandler
 from metrics_handler import MetricsHandler
 
+os.environ["PAINTNET_ROOT"] = "./dataset"
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -55,7 +57,7 @@ def parse_args():
     parser.add_argument('--loss',           default=['chamfer'], type=str, nargs='+', help='List of str with Loss name (chamfer, repulsion, mse)')
     parser.add_argument('--eval_metrics',   default=['pcd'], type=str, nargs='+', help='Eval metrics [pcd: pose-wise chamfer distance, ...]')
     parser.add_argument('--weight_orient',  default=1.0, type=float, help='Weight for L2-norm between orientation w.r.t. positional L2-norm')
-    parser.add_argument('--eval_freq',      default=100, type=int, help='Evaluate model on test set and save it every <eval_freq> epochs')
+    parser.add_argument('--eval_freq',      default=50, type=int, help='Evaluate model on test set and save it every <eval_freq> epochs')
     parser.add_argument('--output_dir',     default='runs', type=str, help='Dir for saving models and results')
     parser.add_argument('--notes',          default=None, type=str, help='wandb notes')
     parser.add_argument('--debug',          default=False, action='store_true', help='debug mode: no wandb')
@@ -103,7 +105,7 @@ def main():
     print('\n ===== RUN NAME:', run_name, f' ({save_dir}) ===== \n')
     pprint(vars(args))
 
-    dataset_path = get_dataset_path(args.dataset, socket.gethostname())
+    dataset_path = get_dataset_path(args.dataset)
 
     wandb.init(config=config,
                name=run_name,
@@ -150,7 +152,7 @@ def main():
                                             num_workers=args.workers)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
+    print("Run on ", device)
     model = get_model(config['backbone'], config=config)
     if config['pretrained']:
         model = init_from_pretrained(model, config=config, device=device)
@@ -163,10 +165,14 @@ def main():
 
     single_sample = None
     best_eval_loss = sys.float_info.max
-    for epoch in range(args.epochs):
+    print("Start train")
+    eval_loss = 0.0
+    best_epoch = 0
+    for epoch in tqdm(range(args.epochs), desc="Epoch:"):
         start_ep_time = time.time()
         tot_loss = 0.0
-        tot_loss_list = np.zeros(len(loss_handler.loss))  
+
+        tot_loss_list = np.zeros(len(loss_handler.loss))
         data_count = 0
         epoch_count = 0
         model.train()
@@ -199,7 +205,7 @@ def main():
             tot_loss_list += loss_list * B
 
         sched.step()
-
+        print({"TOT_epoch_train_loss": (tot_loss * 1.0 / data_count), "epoch": (epoch+1)})
         wandb.log({"TOT_epoch_train_loss": (tot_loss * 1.0 / data_count), "epoch": (epoch+1)})
         tot_loss_list = tot_loss_list * 1.0 / data_count
         loss_handler.log_on_wandb(tot_loss_list, epoch, wandb, suffix='_train_loss')

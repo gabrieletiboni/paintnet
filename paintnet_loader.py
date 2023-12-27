@@ -111,6 +111,7 @@ class PaintNetDataloader(data.Dataset):
             dir_samples = [str(d) for d in json.load(f)]
 
         self.datapath = []
+
         for curr_dir in dir_samples:
             mesh_filename = curr_dir+'.obj'
             traj_filename = 'trajectory.txt'
@@ -134,15 +135,12 @@ class PaintNetDataloader(data.Dataset):
     def __getitem__(self, index):
         if self.overfitting is not None:
             index = self.overfitting
-
         if index in self.cache:  # Retrieve from cache
             point_cloud, traj, dirname = self.cache[index]
         else:  # Retrieve from filesystem
             mesh_file, traj_file, dirname = self.datapath[index]
-            
             point_cloud = read_mesh_as_pointcloud(mesh_file)
             traj, stroke_ids = read_traj_file(traj_file, extra_data=self.extra_data, weight_orient=self.weight_orient)
-
             point_cloud, traj = center_pair(point_cloud, traj, mesh_file)  # Shift to zero mean
             if self.normalization == 'per-dataset':
                 point_cloud /= self.dataset_mean_max_distance
