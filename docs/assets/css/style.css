@@ -152,6 +152,18 @@ header {
 		text-shadow: 0px 1px 4px rgba(0, 0, 0, .3);
 	}
 
+	h3 {
+		color: white;
+		font-weight: normal;
+		font-size: .9rem;
+		text-align: center;
+		width: 92%;
+		max-width: 780px;
+		margin: 0px auto;
+		margin-top: 26px;
+		font-style: italic;
+	}
+
 
 	#linksContainer {
 		width: 92%;
