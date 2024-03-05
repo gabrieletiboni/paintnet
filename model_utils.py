@@ -21,7 +21,7 @@ def get_model(backbone, config):
         Backbones
     """
     if backbone == 'pointnet2':  # PointNet++
-        assert config['pc_points'] > 512, 'farthest point sampling set to 512'
+        assert config['pc_points'] >= 512, 'farthest point sampling set to 512'
         return PointNet2Regressor(out_vectors=out_vectors,
                                   outdim=vector_outdim_transl,
                                   outdim_orient=vector_outdim_orient,

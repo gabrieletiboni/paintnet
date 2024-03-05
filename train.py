@@ -2,7 +2,7 @@
 trajectory, given object point-cloud in input
     
     Examples:
-        - Quick: python train.py --epochs 200 --pc_points 20 --traj_points 20 -bs 4 --loss chamfer --seed 3 --debug
+        - Quick: python train.py --epochs 200 --pc_points 512 --traj_points 200 -bs 4 --loss chamfer --seed 3 --debug
         - Complete (cuboids): python train.py --epochs 1250 --pc_points 5120 --traj_points 2000 -bs 32 --loss chamfer rich_attraction_chamfer --seed 3 --backbone pointnet2 --pretrained --lambda_points 4 --extra_data orientnorm --weight_orient 0.25 --weight_rich_attraction_chamfer 0.5
         - Reproduce paper results: 
             - python train.py --config cuboids_stable_v1.json --seed 42
@@ -35,7 +35,7 @@ def parse_args():
     parser.add_argument('--dataset',        default='cuboids-v1', type=str, help='Dataset name [containers-v2, windows-v1, shelves-v1, cuboids-v1]')
     parser.add_argument('--name',           default=None, type=str, help='Run name suffix')
     parser.add_argument('--group',          default=None, type=str, help='Wandb group name')
-    parser.add_argument('--backbone',       default='pointnet', type=str, help='Backbone [pointnet2]')
+    parser.add_argument('--backbone',       default='pointnet2', type=str, help='Backbone [pointnet2]')
     parser.add_argument('--pretrained',     default=False, action='store_true', help='If exists, loads a pretrained model as starting backbone for global features encoder.')
     parser.add_argument('--lambda_points',  default=1, type=int, help='Traj is considered as point-cloud made of vectors of <lambda> ordered points (Default=1, meaning that'\
                                                                      'chamfer distance would be computed normally on each traj point)')
@@ -103,7 +103,7 @@ def main():
     print('\n ===== RUN NAME:', run_name, f' ({save_dir}) ===== \n')
     pprint(vars(args))
 
-    dataset_path = get_dataset_path(args.dataset, socket.gethostname())
+    dataset_path = get_dataset_path(args.dataset)
 
     wandb.init(config=config,
                name=run_name,

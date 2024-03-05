@@ -754,7 +754,7 @@ def get_dataset_path(category):
                e.g. cuboids-v1, windows-v1, shelves-v1, containers-v2
     """
     assert os.environ.get("PAINTNET_ROOT") is not None, "Set PAINTNET_ROOT environment variable to localize the paintnet dataset root."
-    assert os.path.isdir(os.environ.get("PAINTNET_ROOT")), f'Dataset root path was set but does not exist on current system. Path: {s.environ.get("PAINTNET_ROOT")}'
+    assert os.path.isdir(os.environ.get("PAINTNET_ROOT")), f'Dataset root path was set but does not exist on current system. Path: {os.environ.get("PAINTNET_ROOT")}'
     assert os.path.isdir(os.path.join(os.environ.get("PAINTNET_ROOT"), category)), 'current dataset category {category} does not exist on your system.'
     
     return os.path.join(os.environ.get("PAINTNET_ROOT"), category)
