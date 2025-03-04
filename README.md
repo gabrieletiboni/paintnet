@@ -1,3 +1,15 @@
+<table style="text-align: center;">
+  <tr>
+    <td>
+<h3>Important notice: 2025/02 update</h3>
+<p>Starting from February 2025, an updated version of this work can be found at <a href="https://github.com/gabrieletiboni/MaskPlanner">MaskPlanner</a>.</p>
+<p>The new version includes (1) more training data, (2) a better training pipeline (updated loss function, ...), and (3) a new masking strategy to identify separate paths given the predicted path segments. As a result, <a href="https://github.com/gabrieletiboni/MaskPlanner">MaskPlanner</a> can now fully predict unstructured paths (i.e., unordered, varying in number and length) from 3D point clouds.</p>
+    </td>
+  </tr>
+</table>
+
+---
+
 # PaintNet: Unstructured Multi-Path Learning from 3D Point Clouds for Robotic Spray Painting
 
 [Preprint](https://arxiv.org/abs/2211.06930) / [Website](https://gabrieletiboni.github.io/paintnet/) / [Video](https://gabrieletiboni.github.io/paintnet/) / [Dataset](https://zenodo.org/records/10105273)
