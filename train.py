@@ -103,8 +103,7 @@ def main():
     print('\n ===== RUN NAME:', run_name, f' ({save_dir}) ===== \n')
     pprint(vars(args))
 
-    dataset_path = get_dataset_path(args.dataset)
-
+    dataset_path = get_dataset_path(config["dataset"] if "dataset" in config and "--dataset" not in sys.argv else args.dataset)
     wandb.init(config=config,
                name=run_name,
                group=args.group,
